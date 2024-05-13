@@ -2,7 +2,7 @@
   "name": "olxa-linux-armbian-builder",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/Gantres1/OLxA-Linux-Armbian-builder/",
+  "homepage": "https://github.com/ufrs12/OLxA-Linux-Armbian-builder/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -25,5 +25,9 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
-  }
+  },
+  "description": "Builder images OLxA Linux based on Armbian",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
