@@ -2,7 +2,7 @@
   "name": "olxa-linux-armbian-builder",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/ufrs12/OLxA-Linux-Armbian-builder/",
+  "homepage": "https://github.com/ufrs12/OLxA-Linux-Armbian-builder",
   "type": "module",
   "scripts": {
     "dev": "vite",
