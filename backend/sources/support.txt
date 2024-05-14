@@ -1,0 +1,3 @@
+WIP: Work In Progress: Basic functions can be tested but not ready for production yet.
+CSC: Community Supported Configuration: Community contributed support. No official support from Armbian development team.
+EOS: End of life: Support ended.
