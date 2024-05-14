@@ -1,7 +1,7 @@
 .installer-container{
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   background-color: var(--white-color);
+  border-radius: 10px;
   width: 80%;
   margin: 24px auto;
 }
@@ -9,4 +9,32 @@
   display: grid;
   grid-auto-flow: row;
   justify-content: start;  
+  background-color: var(--light_gray-color);
+  border-radius: 10px 0 0 10px;
+  gap: 20px;
+  padding: 10px;
+}
+.options-item{
+  color: var(--black-color);
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 5px;
+}
+.installer-form{
+  width: 100%;
+  padding: 20px;
+}
+.installer-btn{
+  text-align: left;
+  color: var(--white-color);
+  font-family: sans-serif;
+  font-size: 22px;
+  background-color: var(--light_blue-color);
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px 10px 5px;
+  margin-top: 40px;
+  cursor: pointer;
 }

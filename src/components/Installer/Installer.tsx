@@ -7,21 +7,23 @@ export default function Installer (){
   return(
     <div className='installer-container'>
       <div className='installer-options'>
-        <Link to={"/"}>Базовые настройки</Link>
-        <Link to={"/"}>OLIA</Link>
-        <Link to={"/"}>OLHA</Link>
-        <Link to={"/"}>OLTA</Link>
-        <Link to={"parameters"}>Параметры</Link>
+        <Link to={"/"} className="options-item">Базовые настройки</Link>
+        <Link to={"/"} className="options-item">OLIA</Link>
+        <Link to={"/"} className="options-item">OLHA</Link>
+        <Link to={"/"} className="options-item">OLTA</Link>
+        <Link to={"parameters"} className="options-item">Параметры</Link>
         
-        <button>Получить сборщик</button>
+        <button className="installer-btn">Завершить</button>
       </div>
-      <Routes>
-        <Route path="/" element={<BasicSettings />}></Route>
-        <Route path="*" element={<BasicSettings />}></Route>
-        <Route path="*" element={<BasicSettings />}></Route>
-        <Route path="*" element={<BasicSettings />}></Route>
-        <Route path="parameters" element={<Parameters />}></Route>
-      </Routes>
+      <div className="installer-form">
+        <Routes>
+          <Route path="/" element={<BasicSettings />}></Route>
+          <Route path="*" element={<BasicSettings />}></Route>
+          <Route path="*" element={<BasicSettings />}></Route>
+          <Route path="*" element={<BasicSettings />}></Route>
+          <Route path="parameters" element={<Parameters />}></Route>
+        </Routes>
+      </div>
     </div>
   )
 }
