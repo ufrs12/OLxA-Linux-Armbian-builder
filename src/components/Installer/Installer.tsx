@@ -1,7 +1,4 @@
-import { useState } from "react"
 import "./Installer.css"
-import BasicSettings from "../BasicSettings/BasicSettings";
-import Parameters from "../Parameters/Parameters";
 import { Link } from "react-router-dom";
 
 export default function Installer (){
