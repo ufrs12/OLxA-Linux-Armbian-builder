@@ -1,21 +1,25 @@
+import BasicSettings from "../BasicSettings/BasicSettings";
+import Parameters from "../Parameters/Parameters";
 import "./Installer.css"
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 
 export default function Installer (){
-  return(
-    <div className='installer-container'>
-      <div className='installer-options'>
-        <Link to={"home"}>Базовые настройки</Link>
-        {/* <button onClick={() => setContent(<p>Не работает</p>)}>OLIA</button>
-        <button onClick={() => setContent(<p>Не работает</p>)}>OLHA</button>
-        <button onClick={() => setContent(<p>Не работает</p>)}>OLTA</button>
-        <button onClick={() => setContent(<Parameters />)}>Параметры</button> */}
-
-        <button>Получить сборщик</button>
-      </div>
-      <div className="installer-content">
-        
-      </div>
+  <div className='installer-container'>
+    <div className='installer-options'>
+      <Link to={"/"}>Базовые настройки</Link>
+      <Link to={"/"}>OLIA</Link>
+      <Link to={"/"}>OLHA</Link>
+      <Link to={"/"}>OLTA</Link>
+      <Link to={"parameters"}>Параметры</Link>
+      
+      <button>Получить сборщик</button>
     </div>
-  )
+    <Routes>
+      <Route path="/" element={<BasicSettings />}></Route>
+      <Route path="*" element={<BasicSettings />}></Route>
+      <Route path="*" element={<BasicSettings />}></Route>
+      <Route path="*" element={<BasicSettings />}></Route>
+      <Route path="parameters" element={<Parameters />}></Route>
+    </Routes>
+  </div>
 }
