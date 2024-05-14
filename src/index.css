@@ -1,3 +1,24 @@
 :root{
-    margin: 12px;
+  --white-color: #FFF7FC;
+  --light_gray-color: #E0DADE;
+  --gray-color: #BAB3B7;
+  --dark_gray-color: #969093;
+  --black-color: #06071B;
+  --light_black-color: #0F1022;
+  --light_cian-color: #8B93FF;
+  --light_blue-color: #5755FE;
+  --cian-color: #7D84E5;
+  --blue-color: #4F4EE3;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  background-color: var(--black-color);
+  color: var(--black-color);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
 }
