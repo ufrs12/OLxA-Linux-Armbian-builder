@@ -1,4 +1,4 @@
-export interface Boards {
+export interface Board {
     name:    string;
     supp:    Supp;
     text:    string;
