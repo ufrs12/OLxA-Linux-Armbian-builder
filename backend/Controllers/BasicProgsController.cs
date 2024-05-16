@@ -7,15 +7,15 @@ namespace backend.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class BoardsController : ControllerBase
+public class BasicProgsController : ControllerBase
 {
-    private readonly string boards_path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "/build/config/boards";
+    private readonly string boards_path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "/build/config/cli/bookworm/main/packages.additional";
     
-    [HttpGet(Name = "Boards")]
-    public List<Board> Get()
+    [HttpGet(Name = "BasicProgs")]
+    public List<BasicProgs> Get()
     {
         DirectoryInfo dir = new DirectoryInfo(boards_path);
-        List<Board> boards = new List<Board>();
+        List<BasicProgs> BasicProgs = new List<BasicProgs>();
         foreach (FileInfo file in dir.GetFiles()) 
         { 
             if (file.Extension == ".md")
