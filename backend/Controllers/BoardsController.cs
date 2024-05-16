@@ -24,19 +24,23 @@ public class BoardsController : ControllerBase
             while (!f.EndOfStream)
             {
                 string? s = f.ReadLine();
-                if (s.StartsWith("BOARD_NAME"))
+                int len = s.Length - 1;
+                int ind;
+
+                ind = s.IndexOf("BOARD_NAME");
+                if (ind >= 0)
                 {
-                    int ind = s.Length - 2;
-                    s = s.Remove(ind); 
-                    board_text = s.Remove(0, 12);
+                    s = s.Remove(len); 
+                    board_text = s.Remove(0, ind + 12);
                     continue;
                 }
-                if (s.StartsWith("KERNEL_TARGET"))
+
+                ind = s.IndexOf("KERNEL_TARGET");
+                if (ind >= 0)
                 {
                     int count = 0;
-                    int ind = s.Length - 1;
-                    s = s.Remove(ind); 
-                    s = s.Remove(0, 15);
+                    s = s.Remove(len); 
+                    s = s.Remove(0, ind + 15);
 
                     ind = s.IndexOf("edge");
                     if (ind >= 0)
@@ -82,7 +86,7 @@ public class BoardsController : ControllerBase
                     {
                         Console.WriteLine(file.Name + "-" + "Без ядер, или неизвестное");
                     }
-                    continue;
+                    break;
                 }
             }
             f.Close();
