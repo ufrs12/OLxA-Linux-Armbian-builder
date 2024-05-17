@@ -1,15 +1,20 @@
-import { Board, Kernel, Supp } from '../../../../backend/tofront/v23/boards/models';
+import boardsData from "./boards/boards_all.json"
 
-export class Device implements Board {
+export interface Board {
   name: string;
-  supp: Supp;
+  supp: string;
   text: string;
-  kernels: Kernel[];
+  kernels: string[];
+}
 
-  constructor(name: string, supp: Supp, text: string, kernels: Kernel[]) {
-    this.name = name;
-    this.supp = supp;
-    this.text = text;
-    this.kernels = kernels;
+export class Armbian {
+  armVersion: string;
+  boards: Board[];
+  basicProgs: string[];
+
+  constructor(armVersion: string, basicProgs: string[]){
+    this.armVersion = armVersion;
+    this.boards = boardsData;
+    this.basicProgs = basicProgs;
   }
 }
