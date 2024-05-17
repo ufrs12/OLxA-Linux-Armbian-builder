@@ -72,7 +72,7 @@ const BasicSettings: React.FC = () => {
         render={({ field }) => (
           <select {...field} onChange={(el) => {
             field.onChange(el);
-            saveData({ board, core: el.target.value }); // Сохранить данные при изменении ядра
+            saveData({ board, core: el.target.value });        // Сохранить данные при изменении ядра
           }}>
             {boards.boards.find(b => b.name === selectedBoard)?.kernels.map((kernel, index) => (
               <option key={index} value={kernel}>{kernel}</option>
