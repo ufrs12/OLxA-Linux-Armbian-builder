@@ -3,7 +3,7 @@ import Parameters from "../Parameters/Parameters";
 import "./Installer.css"
 import { Link, Route, Routes } from "react-router-dom";
 
-import { Armbian } from "../../assets/armdata/v23/Armbian";
+import { Armbian } from "../../models/Armbian";
 export default function Installer (){
   const t = new Armbian("23", ["1", "2"])
   function a(){console.log(t);}

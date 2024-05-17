@@ -1,2 +1,0 @@
-[{"name":"orangepi3-lts","supp":".csc","text":"Orange Pi 3 LT","kernels":["edge","current"]},
-{"name":"rpi4b","supp":".conf","text":"Raspberry Pi 4","kernels":["edge","current","legacy"]}]

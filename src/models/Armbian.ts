@@ -1,4 +1,4 @@
-import boardsData from "./boards/boards_all.json"
+import boardsData from "../assets/armdata/v23/boards/boards_all.json"
 
 export interface Board {
   name: string;

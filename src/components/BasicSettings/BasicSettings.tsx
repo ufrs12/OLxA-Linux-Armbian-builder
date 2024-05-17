@@ -3,7 +3,7 @@ import "./BasicSettings.css"
 import "./BasicSettings.css";
 import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Armbian } from "../../assets/armdata/v23/Armbian";
+import { Armbian } from "../../models/Armbian";
 
 const boards = new Armbian("23", ["1", "2"]);
 
