@@ -18,7 +18,7 @@ const BasicSettings: React.FC = () => {
   const core = watch('core');  
   
   useEffect(() => {
-    const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings")!);
+    const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings") || '{}');
     setValue('board', savedSettings.board || boards.boards[0].name);
     setValue('core', savedSettings.core || boards.boards[0].kernels[0]);
   }, [setValue]);
