@@ -1,5 +1,3 @@
-import "./BasicSettings.css"
-
 import "./BasicSettings.css";
 import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
@@ -17,10 +15,7 @@ const BasicSettings: React.FC = () => {
   const [selectedBoard, setSelectedBoard] = useState<string>(boards.boards[0].name);
 
   const board = watch('board');
-  const core = watch('core');
-
-  const savedBoard = React.createContext({default: boards.boards[0].name});
-  const savedCore = React.createContext({default: boards.boards[0].kernels[0]});
+  const core = watch('core');  
   
   useEffect(() => {
     const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings")!);

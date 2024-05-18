@@ -5,11 +5,11 @@ import Installer from './components/Installer/Installer';
 export default function App() {
   return (
     <>
-      <main className='wrapper'>
-        <BrowserRouter>
+      <BrowserRouter>
+        <main className='wrapper'>
           <Installer />
-        </BrowserRouter>
-      </main>
+        </main>
+      </BrowserRouter>
     </>
   )
 }
