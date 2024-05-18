@@ -18,9 +18,9 @@ const BasicSettings: React.FC = () => {
   const core = watch('core');  
   
   useEffect(() => {
-    const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings") || '{}');
-    setValue('board', savedSettings.board || boards.boards[0].name);
-    setValue('core', savedSettings.core || boards.boards[0].kernels[0]);
+    const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings")!);
+    setValue('board', savedSettings ? savedSettings.board : boards.boards[0].name);
+    setValue('core', savedSettings ? savedSettings.core : boards.boards[0].kernels[0]);
   }, [setValue]);
 
   useEffect(() => {                     // Обновляем ядра на основе выбранной платы
