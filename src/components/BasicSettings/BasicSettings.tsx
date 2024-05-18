@@ -1,9 +1,8 @@
 import "./BasicSettings.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Armbian } from "../../models/Armbian";
-
-const boards = new Armbian("23", ["1", "2"]);
+import { ArmbianContext } from '../Installer/Installer';
+// const boards = new Armbian("23", ["1", "2"]);
 
 interface IFormInput {
   board: string;
@@ -11,6 +10,9 @@ interface IFormInput {
 }
 
 const BasicSettings: React.FC = () => {
+  
+  const boards = useContext(ArmbianContext);
+
   const { control, watch, setValue } = useForm<IFormInput>();
   const [selectedBoard, setSelectedBoard] = useState<string>(boards.boards[0].name);
 
