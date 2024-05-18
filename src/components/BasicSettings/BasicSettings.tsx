@@ -13,20 +13,19 @@ interface IFormInput {
 }
 
 const BasicSettings: React.FC = () => {
-  const { control, watch, setValue } = useForm<IFormInput>({
-    defaultValues: {
-      board: boards.boards[0].name,
-      core: boards.boards[0].kernels[0]
-    }
-  });
+  const { control, watch, setValue } = useForm<IFormInput>();
   const [selectedBoard, setSelectedBoard] = useState<string>(boards.boards[0].name);
 
   const board = watch('board');
   const core = watch('core');
 
+  const savedBoard = React.createContext({default: boards.boards[0].name});
+  const savedCore = React.createContext({default: boards.boards[0].kernels[0]});
+  
   useEffect(() => {
-    setValue('board', boards.boards[0].name);
-    setValue('core', boards.boards[0].kernels[0]);
+    const savedSettings = JSON.parse(sessionStorage.getItem("basic-settings")!);
+    setValue('board', savedSettings.board || boards.boards[0].name);
+    setValue('core', savedSettings.core || boards.boards[0].kernels[0]);
   }, [setValue]);
 
   useEffect(() => {                     // Обновляем ядра на основе выбранной платы
@@ -37,7 +36,7 @@ const BasicSettings: React.FC = () => {
         setValue('core', selectedBoardData.kernels[0]);
       }
     }
-  }, [board, setValue]);
+  }, [board]);
 
   useEffect(() => {                     // Сохраняем данные при изменении ядра
     if (core) {
@@ -46,7 +45,7 @@ const BasicSettings: React.FC = () => {
   }, [core]);
 
   const saveData = (data: IFormInput) => {
-    console.log(data);
+    sessionStorage.setItem("basic-settings", JSON.stringify(data))
   };
 
   return (
@@ -65,7 +64,6 @@ const BasicSettings: React.FC = () => {
           </select>
         )}
       />
-
       <Controller
         name="core"
         control={control}
