@@ -3,7 +3,11 @@ import Parameters from "../Parameters/Parameters";
 import "./Installer.css"
 import { Link, Route, Routes } from "react-router-dom";
 
+import { Armbian } from "../../models/Armbian";
 export default function Installer (){
+  const t = new Armbian("23", ["1", "2"])
+  function a(){console.log(t);}
+  
   return(
     <div className='installer-container'>
       <div className='installer-options'>
@@ -13,7 +17,7 @@ export default function Installer (){
         <Link to={"olta"} className="options-item">OLTA</Link>
         <Link to={"parameters"} className="options-item">Параметры</Link>
         
-        <button className="installer-btn">Завершить</button>
+        <button className="installer-btn" onClick={a}>Завершить</button>
       </div>
       <div className="installer-form">
         <Routes>
