@@ -1,4 +1,4 @@
-import { build } from "../Installer";
+import { build } from "../../Installer";
 
 const RunContent = () => `
 #!/bin/bash
