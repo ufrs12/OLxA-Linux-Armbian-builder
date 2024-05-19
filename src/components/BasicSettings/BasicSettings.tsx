@@ -1,5 +1,4 @@
 import "./BasicSettings.css";
-import React, { useState, useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { armbian, build } from '../Installer/Installer';
 
@@ -19,12 +18,6 @@ const BasicSettings: React.FC = () => {
   build.board = watch('board');
   build.kernel = watch('core');  
   
-
-
-  // const saveData = (data: IFormInput) => {
-  //   sessionStorage.setItem("basic-settings", JSON.stringify(data))
-  // };
-
   return (
     <form>
       <Controller
