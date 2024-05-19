@@ -20,5 +20,5 @@ html{
   background-color: var(--black-color);
   color: var(--black-color);
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
 }

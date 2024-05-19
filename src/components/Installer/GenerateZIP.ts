@@ -10,8 +10,6 @@ export default function GenerateZIP (){
   const scripts = builder?.folder("scripts");
   scripts?.file("run.sh", RunContent());
   
-  
-
   zip.generateAsync({ type: "blob" }).then(function(blob) {
     const href = URL.createObjectURL(blob);
     const link = document.createElement('a');
