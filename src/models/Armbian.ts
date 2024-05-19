@@ -1,4 +1,5 @@
 import boardsData from "../armdata/v23/boards/boards_all.json"
+import progsData from "../armdata/v23/boards/basicprogs.json"
 
 interface Board {
   name: string;
@@ -29,9 +30,9 @@ export class Armbian {
   boards: Board[];
   basicProgs: string[];
 
-  constructor(armVersion: string, basicProgs: string[]){
-    this.armVersion = armVersion;
+  constructor(){
+    this.armVersion = "24.05";
     this.boards = boardsData;
-    this.basicProgs = basicProgs;
+    this.basicProgs = progsData;
   }
 }
