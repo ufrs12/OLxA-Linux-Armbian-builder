@@ -2,10 +2,11 @@ import boardsData from "../armdata/v23/boards/boards_all.json"
 import progsData from "../armdata/v23/boards/basicprogs.json"
 
 interface Board {
-  name: string;
-  supp: string;
-  text: string;
-  kernels: string[];
+  name:     string;
+  supp:     string;
+  text:     string;
+  kernels:  string[];
+  lanname:  string;
 }
 
 // enum Supp {
@@ -27,7 +28,7 @@ interface Board {
 
 export class Armbian {
   armVersion: string;
-  boards: Board[];
+  boards:     Board[];
   basicProgs: string[];
 
   constructor(){
