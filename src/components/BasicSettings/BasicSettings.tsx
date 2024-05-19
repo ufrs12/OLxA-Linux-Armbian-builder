@@ -14,7 +14,7 @@ const BasicSettings: React.FC = () => {
       board: build.board,
       core: build.kernel}
   });
-    
+
   build.board = watch('board');
   build.kernel = watch('core');  
   
