@@ -26,7 +26,6 @@ const BasicSettings: React.FC = () => {
           <select {...field} onChange={(e) => {
             field.onChange(e);
             setValue('board', e.target.value);
-            console.log(e);
           }}>
             {armbian.boards.map((item, index) => (
               <option key={index} value={item.name}>{item.text}</option>
@@ -41,7 +40,6 @@ const BasicSettings: React.FC = () => {
           <select {...field} onChange={(el) => {
             field.onChange(el);
             setValue('core', el.target.value);
-
           }}>
             {armbian.boards.find(b => b.name === watch('board'))?.kernels.map((kernel, index) => (
               <option key={index} value={kernel}>{kernel}</option>
