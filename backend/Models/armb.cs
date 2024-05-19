@@ -12,6 +12,7 @@ public class Board
     public string? Supp { get; set; }
     public string? Text { get; set; }
     public List<string>? Kernels { get; set; }
+    public string? LanName { get; set; }
 }
 
 public class BasicProgs
