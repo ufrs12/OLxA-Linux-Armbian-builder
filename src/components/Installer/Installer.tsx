@@ -5,7 +5,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import { Armbian } from "../../models/Armbian";
 import { Build } from "../../models/Build";
 
-//export const ArmbianContext = React.createContext(new Armbian("24", ["1", "2"]));
 export const armbian = new Armbian();
 export var build = new Build(armbian.boards[0].name, armbian.boards[0].kernels[0]);
 
