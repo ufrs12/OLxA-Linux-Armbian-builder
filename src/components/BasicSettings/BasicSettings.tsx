@@ -61,6 +61,7 @@ const BasicSettings: React.FC = () => {
         />
       </section>
       <section>
+        <label>Базовые компоненты:</label>
         <Controller 
           name="apps"
           control={control}
