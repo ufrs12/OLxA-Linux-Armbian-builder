@@ -4,6 +4,7 @@ import BuildContent from "./FilesCreator/BuildContent";
 
 export default function GenerateZIP (){
   const zip = new JSZip();
+  
   const builder = zip.folder("builder");
   builder?.file("build.sh", BuildContent());
   
