@@ -8,7 +8,7 @@ import { armbian, build } from '../Installer/Installer';
 }
 
 const BasicSettings: React.FC = () => {
-  
+
   const { control, watch, setValue } = useForm<IFormInput>({
     defaultValues: {
       board: build.board,
@@ -26,8 +26,7 @@ const BasicSettings: React.FC = () => {
         render={({ field }) => (
           <select {...field} onChange={(e) => {
             field.onChange(e);
-            setValue('board', e.target.value); // Сбросить ядро при изменении платы
-            //build.board = e.target.value;
+            setValue('board', e.target.value);
           }}>
             {armbian.boards.map((item, index) => (
               <option key={index} value={item.name}>{item.text}</option>
@@ -41,9 +40,7 @@ const BasicSettings: React.FC = () => {
         render={({ field }) => (
           <select {...field} onChange={(el) => {
             field.onChange(el);
-            setValue('core', el.target.value);;        // Сохранить данные при изменении ядра
-            //build.kernel = el.target.value;
-            //console.log(build);
+            setValue('core', el.target.value);
           }}>
             {armbian.boards.find(b => b.name === watch('board'))?.kernels.map((kernel, index) => (
               <option key={index} value={kernel}>{kernel}</option>
