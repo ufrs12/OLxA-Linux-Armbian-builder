@@ -10,7 +10,7 @@ export default function GenerateZIP (){
     const href = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = href;
-    link.download = "compile.zip";
+    link.download = "builder.zip";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
