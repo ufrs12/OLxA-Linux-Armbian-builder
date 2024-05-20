@@ -97,7 +97,8 @@ public class BoardsController : ControllerBase
                 Name = Path.GetFileNameWithoutExtension(file.Name),
                 Supp = file.Extension,
                 Text = board_text,
-                Kernels = kernels
+                Kernels = kernels,
+                LanName ="-"
             });
         }
         return boards;
