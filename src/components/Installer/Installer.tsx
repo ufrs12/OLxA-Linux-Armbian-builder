@@ -10,7 +10,7 @@ import { Build } from "../../models/Build";
 import DownloadFile from "./GenerateZIP";
 
 export const armbian = new Armbian();
-export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
+export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0], armbian.boards[0].lanname);
 
 export default function Installer (){
   return(
