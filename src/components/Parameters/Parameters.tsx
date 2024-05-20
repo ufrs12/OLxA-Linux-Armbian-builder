@@ -1,13 +1,21 @@
-import { useState } from "react"
+import { Controller, useForm } from "react-hook-form"
+import InputMask from "react-input-mask";
 import "./Parameters.css"
 
 export default function Parameters () {
-  const [click, setClick] = useState(1)
+  const { handleSubmit, reset, setValue, control } = useForm({ });
+
   return(
-    <div>
-      <button onClick={() => setClick(click + 1)}>{click}</button>
-      <input type="text" />
-    </div>
-    
+    <form>
+      <Controller 
+        name="parameters"
+        control={control}
+        render={({ field }) => (
+          <InputMask>
+          
+          </InputMask>
+        )}
+      />
+    </form>
   )
 }
