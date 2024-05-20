@@ -6,7 +6,7 @@ interface Board {
   supp:     string;
   text:     string;
   kernels:  string[];
-  lanname?:  string;
+  lanname:  string;
 }
 
 // enum Supp {

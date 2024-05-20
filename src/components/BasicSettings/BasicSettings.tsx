@@ -1,6 +1,7 @@
 import "./BasicSettings.css";
 import { useForm, Controller } from 'react-hook-form';
 import { armbian, build } from '../Installer/Installer';
+import React from "react";
 
 interface IFormInput {
   board: string;
@@ -20,45 +21,42 @@ const BasicSettings: React.FC = () => {
   build.kernel = watch('core');  
   build.basicprogs = watch('apps');  
 
-  // function Dropdown (){
-  //   return()
-  // }
+  const Dropdown: React.FC<{
+    name: string, 
+    children: React.ReactNode
+  }> = ({name, children}) => {
+    return(
+      <Controller
+        name={name as 'board' | 'core'}
+        control={control}
+        render={({ field }) => (
+          <select {...field} onChange={(e) => {
+            field.onChange(e);
+            setValue(name as 'board' | 'core', e.target.value);
+          }} className="dropdown-list">
+            {children}
+          </select>
+  )}/>)}
   
   return (
     <form>
-      <section>
-        <label>Плата:</label>
-        <Controller
-          name="board"
-          control={control}
-          render={({ field }) => (
-            <select {...field} onChange={(e) => {
-              field.onChange(e);
-              setValue('board', e.target.value);
-            }}>
-              {armbian.boards.map((item, index) => (
-                <option key={index} value={item.name}>{item.text}</option>
-              ))}
-            </select>
-          )}
-        />
-      </section>
-      <section>
-        <label>Версия ядра:</label>
-        <Controller
-          name="core"
-          control={control}
-          render={({ field }) => (
-            <select {...field} onChange={(e) => {
-              field.onChange(e);
-              setValue('core', e.target.value);
-            }}>
-              {armbian.boards.find(b => b.name === watch('board'))?.kernels.map((kernel, index) => (
-                <option key={index} value={kernel}>{kernel}</option>
-              ))}
-            </select>
-          )}
-        />
+      <section className="dropdown-group">
+        <div className="dropdown-container">
+          <label>Плата:</label>
+          <Dropdown name="board">
+            {armbian.boards.map((item, index) => (
+              <option key={index} value={item.name}>{item.text}</option>
+            ))}
+          </Dropdown>
+        </div>
+        <div className="dropdown-container">
+          <label>Версия ядра:</label>
+          <Dropdown name="core">
+            {armbian.boards.find(b => b.name === watch('board'))?.kernels.map((kernel, index) => (
+              <option key={index} value={kernel}>{kernel}</option>
+            ))}
+          </Dropdown>
+        </div>
       </section>
       <section>
         <label>Базовые компоненты:</label>
@@ -66,34 +64,28 @@ const BasicSettings: React.FC = () => {
           name="apps"
           control={control}
           render={({ field: { onChange, value } }) => (
-            <div>
+            <div className="app-list">
               {armbian.basicProgs.map((app, index) => (
-                <label key={index} htmlFor={app}>
-                  <div>
-                    {/* <img src="" alt={app} /> */}
-                    <p>
-                      <input 
-                        type="checkbox" 
-                        id={app} 
-                        value={app}
-                        checked={value.includes(app)}
-                        onChange={(e) => {
-                          const isChecked = e.target.checked;
-                          let updatedApps = isChecked
-                            ? [...value, app]
-                            : value.filter((v) => v !== app);
-        
-                          onChange(updatedApps);
-                          setValue('apps', updatedApps);
-                        }} 
-                      /> 
-                      {app}
-                    </p>
-                  </div>
-                </label>
-              ))}
-            </div>
-          )}
+                <label key={index} htmlFor={app} className="app-item">
+                  {/* <img src="" alt={app} /> */}
+                  <input 
+                    type="checkbox" 
+                    id={app} 
+                    value={app}
+                    checked={value.includes(app)}
+                    onChange={(e) => {
+                      const isChecked = e.target.checked;
+                      let updatedApps = isChecked
+                        ? [...value, app]
+                        : value.filter((v) => v !== app);
+    
+                      onChange(updatedApps);
+                      setValue('apps', updatedApps);
+                    }} 
+                  /> 
+                  {app}
+                </label>))}
+            </div>)}
         />
       </section>
     </form>
