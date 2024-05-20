@@ -1,5 +1,8 @@
 import "./Installer.css"
 import BasicSettings from "../BasicSettings/BasicSettings";
+import OLIA from "../OLIA/OLIA";
+import OLHA from "../OLHA/OLHA";
+import OLTA from "../OLTA/OLTA";
 import Parameters from "../Parameters/Parameters";
 import { Link, Route, Routes } from "react-router-dom";
 import { Armbian } from "../../models/Armbian";
@@ -23,9 +26,9 @@ export default function Installer (){
       <div className="installer-form">
         <Routes>
           <Route path="/" element={<BasicSettings />}></Route>
-          <Route path="olia" element={<BasicSettings />}></Route>
-          <Route path="olha" element={<BasicSettings />}></Route>
-          <Route path="olta" element={<BasicSettings />}></Route>
+          <Route path="olia" element={<OLIA />}></Route>
+          <Route path="olha" element={<OLHA />}></Route>
+          <Route path="olta" element={<OLTA />}></Route>
           <Route path="parameters" element={<Parameters />}></Route>
         </Routes>
       </div>
