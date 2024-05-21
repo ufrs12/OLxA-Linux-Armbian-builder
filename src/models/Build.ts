@@ -11,7 +11,7 @@ export class Build {
   armversion: string;
   basicprogs: string[] = [];
   lanchange:  boolean = false;
-  lanname?:   string;
+  lanname:    string;
   lanip:      string = '192.168.1.2';
   lansubnet:  string = '255.255.255.0';
   langate:    string = '192.168.1.1';
