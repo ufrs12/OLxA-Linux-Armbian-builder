@@ -1,6 +1,7 @@
 import { Controller, useForm } from "react-hook-form"
 import "./Parameters.css"
 import { build } from "../Installer/Installer";
+import React from "react";
 
 interface LanFormInput {
   lanip: string;
@@ -22,7 +23,8 @@ export default function Parameters () {
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement>, 
-    field: any
+    field: any,
+    mask: string
   ) => {
     const input = e.target;
     const inputNumbersValue = input.value.replace(/\D/g, '');
@@ -32,60 +34,59 @@ export default function Parameters () {
     if (inputNumbersValue.length > 3){
       formattedInputValue += "." + inputNumbersValue.substring(3,6);
     }
-    if (inputNumbersValue.length > 6){
-      formattedInputValue += "." + inputNumbersValue.substring(6,7);
-    }
-    if (inputNumbersValue.length > 7){
-      formattedInputValue += "." + inputNumbersValue.substring(7,8);
+    if (mask === "xxx.xxx.x.x"){
+      if (inputNumbersValue.length > 6){
+        formattedInputValue += "." + inputNumbersValue.substring(6,7);
+      } if (inputNumbersValue.length > 7){
+        formattedInputValue += "." + inputNumbersValue.substring(7,8);
+      }
+    } else if (mask === "xxx.xxx.xxx.x"){
+      if (inputNumbersValue.length > 6){
+        formattedInputValue += "." + inputNumbersValue.substring(6,9);
+      } if (inputNumbersValue.length > 9){
+        formattedInputValue += "." + inputNumbersValue.substring(9,10);
+      }
     }
 
     e.target.value = formattedInputValue;
-    field.onChange(e.target.value);
-    setValue(field.name, e.target.value);
+    
+    if ((inputNumbersValue.length === 8 && mask === "xxx.xxx.x.x") || (inputNumbersValue.length === 10 && mask === "xxx.xxx.xxx.x")){
+      field.onChange(e.target.value);
+      setValue(field.name, e.target.value);
+    }
   }
+
+  const InputMask: React.FC <(
+    { name: string; mask: string }
+  )> = ({ name, mask }) => {
+    return(
+      <Controller 
+        name={name as 'lanip' | 'lansubnet' | 'langate'}
+        control={control}
+        render={({ field }) => (
+          <input 
+            type="text" 
+            placeholder={field.value} 
+            defaultValue={field.value}
+            maxLength={mask.length} 
+            onChange={(e) => handleInputChange(e, field, mask)} 
+          />
+        )}
+      />
+    )
+  }
+
+  const fields = [
+    { name: "lanip", mask: "xxx.xxx.x.x" },
+    { name: "lansubnet", mask: "xxx.xxx.xxx.x" },
+    { name: "langate", mask: "xxx.xxx.x.x" }
+  ]
 
   return(
     <form>
-      <Controller 
-        name="lanip"
-        control={control}
-        render={({ field }) => (
-          <input 
-            type="text" 
-            placeholder={field.value} 
-            maxLength={11} 
-            onChange={(e) => handleInputChange(e, field)} 
-          />
-        )}
-      />
-      <Controller 
-        name="lansubnet"
-        control={control}
-        render={({ field }) => (
-          <input 
-            type="text" 
-            placeholder={field.value} 
-            maxLength={13} 
-            onChange={(e) => {
-              field.onChange(e);
-              setValue("lansubnet", e.target.value);
-            }}
-            // onChange={(e) => handleInputChange(e, field)} 
-          />
-        )}
-      />
-      <Controller 
-        name="langate"
-        control={control}
-        render={({ field }) => (
-          <input 
-            type="text" 
-            placeholder={field.value} 
-            maxLength={11} 
-            onChange={(e) => handleInputChange(e, field)} 
-          />
-        )}
-      />
+      {fields.map((field) => (
+        <InputMask key={field.name} name={field.name} mask={field.mask} />
+      ))}
     </form>
   )
 }
