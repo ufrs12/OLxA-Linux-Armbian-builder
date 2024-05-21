@@ -4,6 +4,7 @@ import BuildContent from "./FilesCreator/BuildContent";
 import ReBuildContent from "./FilesCreator/ReBuildContent";
 import NetworkContent from "./FilesCreator/userpatches/overlay/network/NetworkContent";
 import CustomizeImageContents from "./FilesCreator/userpatches/CustomizeImageContents";
+import FirstBootContent from "./FilesCreator/userpatches/overlay/firstboot/FirstBootContent";
 
 export default function GenerateZIP (){
   const zip = new JSZip();
@@ -22,6 +23,9 @@ export default function GenerateZIP (){
 
         const network = overlay?.folder("network");
           network?.file("interfaces", NetworkContent());
+          
+        const overl_scipts = overlay?.folder("scripts");
+          overl_scipts?.file("firstboot.sh", FirstBootContent());
 
   
   zip.generateAsync({ type: "blob" }).then(function(blob) {
