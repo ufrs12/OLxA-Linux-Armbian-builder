@@ -21,22 +21,22 @@ export default function Parameters () {
   build.lansubnet = watch('lansubnet');  
   build.langate = watch('langate');  
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>, 
-    field: any,
-  ) => {
-    // const input = e.target;
-    // const parts = input.value.split('.'); // Ограничиваем длину каждой части до 3 цифр
-    // if (parts.length > 4) {return}; // Не более 4 частей
-    // const numbers = parts.map(part => {
-    //   const num = parseInt(part, 10);
-    //   return isNaN(num) ? 0 : num > 255 ? 255 : num; 
-    // });
+  // const handleInputChange = (
+  //   e: React.ChangeEvent<HTMLInputElement>, 
+  //   field: any
+  // ) => {
+  //   // const input = e.target;
+  //   // const parts = input.value.split('.'); // Ограничиваем длину каждой части до 3 цифр
+  //   // if (parts.length > 4) {return}; // Не более 4 частей
+  //   // const numbers = parts.map(part => {
+  //   //   const num = parseInt(part, 10);
+  //   //   return isNaN(num) ? 0 : num > 255 ? 255 : num; 
+  //   // });
 
-    field.onChange(e.target.value);
-    setValue(field.name, e.target.value);
-    console.log(field.name);
-  }
+  //   field.onChange(e.target.value);
+  //   setValue(field.name, e.target.value);
+  //   console.log(field.name);
+  // }
 
   const InputMask: React.FC <(
     { name: string }
@@ -47,8 +47,12 @@ export default function Parameters () {
         control={control}
         render={({ field }) => (
           <input 
+            {...field}
             type="text" 
-            onChange={(e) => handleInputChange(e, field)} 
+            onChange={(e) => {
+              field.onChange(e);
+              setValue(name as 'lanip' | 'lansubnet' | 'langate', e.target.value);
+            }} 
           />
         )}
       />
