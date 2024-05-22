@@ -1,4 +1,4 @@
-import { build } from "../../../../Installer";
+import { build } from "../../../Installer";
 
 export default function FirstBootContent() {
     let content:string = `#!/bin/sh`

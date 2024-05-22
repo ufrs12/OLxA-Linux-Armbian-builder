@@ -4,7 +4,7 @@ import BuildContent from "./FilesCreator/BuildContent";
 import ReBuildContent from "./FilesCreator/ReBuildContent";
 import NetworkContent from "./FilesCreator/userpatches/overlay/network/NetworkContent";
 import CustomizeImageContents from "./FilesCreator/userpatches/CustomizeImageContents";
-import FirstBootContent from "./FilesCreator/userpatches/overlay/firstboot/FirstBootContent";
+import FirstBootContent from "./FilesCreator/userpatches/overlay/FirstBootContent";
 
 export default function GenerateZIP (){
   const zip = new JSZip();
@@ -20,12 +20,12 @@ export default function GenerateZIP (){
       userpatches?.file("body-customize-image.sh", CustomizeImageContents());  
 
       const overlay = userpatches?.folder("overlay");
-
+        overlay?.file("firstboot.sh", FirstBootContent());
+      
         const network = overlay?.folder("network");
           network?.file("interfaces", NetworkContent());
           
-        const overl_scipts = overlay?.folder("scripts");
-          overl_scipts?.file("firstboot.sh", FirstBootContent());
+          
 
   
   zip.generateAsync({ type: "blob" }).then(function(blob) {
