@@ -1,7 +1,7 @@
 import { Controller, useForm } from "react-hook-form"
 import "./Parameters.css"
 import { build } from "../Installer/Installer";
-import React, { useState } from "react";
+import React from "react";
 
 interface LanFormInput {
   lanipchange: boolean;
@@ -13,8 +13,6 @@ interface LanFormInput {
 }
 
 export default function Parameters () {
-  const [isInputsEnabled, setIsInputsEnabled] = useState(build.lanipchange);
-
   const { control, watch, setValue } = useForm<LanFormInput>({
     defaultValues: {
       lanipchange: build.lanipchange,
