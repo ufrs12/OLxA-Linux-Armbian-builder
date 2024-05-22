@@ -13,6 +13,7 @@ export class Build {
   lanipchange:  boolean = false;
   lannchange:   boolean = false;
   landefn:      string = "eth0";
+  lanname:      string = "eth0";
   lanip:        string = '192.168.1.2';
   lansubnet:    string = '255.255.255.0';
   langate:      string = '192.168.1.1';
