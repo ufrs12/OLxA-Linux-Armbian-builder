@@ -1,3 +1,4 @@
+import { build } from "../../Installer"
 
 
 const CustomizeImageContents = () => `
@@ -23,9 +24,9 @@ BUILD_DESKTOP=$4
 Main() {
 	case $RELEASE in
                 bookworm)
-                # Copy network settings
-                cp /tmp/overlay/network/interfaces /etc/network
-
+                `+`${build.lanipchange ? `# Copy network settings
+                cp /tmp/overlay/network/interfaces /etc/network` : ""}`+`
+        
                 # Change motd (welcome message)
                 #cat /tmp/overlay/motd/logo.sh > etc/update-motd.d/10-armbian-header
 
