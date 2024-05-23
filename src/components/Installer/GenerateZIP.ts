@@ -25,13 +25,10 @@ export default function GenerateZIP (){
         const network = overlay?.folder("network");
           network?.file("interfaces", NetworkContent());
 
-        const firstboot = overlay?.folder("network");
+        const firstboot = overlay?.folder("firstboot");
           firstboot?.file("firstboot.sh", FirstBootContent());
           firstboot?.file("firstboot.service", FirstBootServiceContent());
           
-          
-
-  
   zip.generateAsync({ type: "blob" }).then(function(blob) {
     const href = URL.createObjectURL(blob);
     const link = document.createElement('a');
