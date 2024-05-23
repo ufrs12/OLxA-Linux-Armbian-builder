@@ -4,7 +4,7 @@ import OLIA from "../OLIA/OLIA";
 import OLHA from "../OLHA/OLHA";
 import OLTA from "../OLTA/OLTA";
 import Parameters from "../Parameters/Parameters";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { Armbian } from "../../models/Armbian";
 import { Build } from "../../models/Build";
 import DownloadFile from "./GenerateZIP";
@@ -13,19 +13,22 @@ export const armbian = new Armbian();
 export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
 
 export default function Installer (){
+  const location = useLocation();
+  const isActive = (path: string) => location.pathname === `/${path}`;
+
   return(
     <div className='installer-container'>
       <div className='installer-options'>
-        <Link to={"/"} className="options-item">Базовые настройки</Link>
-        <Link to={"olia"} className="options-item">OLIA</Link>
-        <Link to={"olha"} className="options-item">OLHA</Link>
-        <Link to={"olta"} className="options-item">OLTA</Link>
-        <Link to={"parameters"} className="options-item">Параметры</Link> 
+        <Link to={"bsettings"} className={`options-item ${isActive('bsettings') ? 'active' : ''}`}>Базовые настройки</Link>
+        <Link to={"olia"} className={`options-item ${isActive('olia') ? 'active' : ''}`}>OLIA</Link>
+        <Link to={"olha"} className={`options-item ${isActive('olha') ? 'active' : ''}`}>OLHA</Link>
+        <Link to={"olta"} className={`options-item ${isActive('olta') ? 'active' : ''}`}>OLTA</Link>
+        <Link to={"parameters"} className={`options-item ${isActive('parameters') ? 'active' : ''}`}>Параметры</Link> 
         <button onClick={DownloadFile} className="installer-btn">Завершить</button>
       </div>
       <div className="installer-form">
         <Routes>
-          <Route path="/" element={<BasicSettings />}></Route>
+          <Route path="bsettings" element={<BasicSettings />}></Route>
           <Route path="olia" element={<OLIA />}></Route>
           <Route path="olha" element={<OLHA />}></Route>
           <Route path="olta" element={<OLTA />}></Route>
