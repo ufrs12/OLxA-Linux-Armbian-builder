@@ -17,7 +17,7 @@ export default function Parameters () {
     defaultValues: {
       lanipchange: build.lanipchange,
       lannchange: build.lannchange,
-      landefn: build.landefn,
+      landefn: build.lanname,
       lanip: build.lanip,
       lansubnet: build.lansubnet,
       langate: build.langate
@@ -25,7 +25,7 @@ export default function Parameters () {
 
   build.lanipchange = watch('lanipchange');
   build.lannchange = watch('lannchange');
-  build.landefn = watch('landefn');
+  build.lanname = watch('landefn');
   build.lanip = watch('lanip');
   build.lansubnet = watch('lansubnet');  
   build.langate = watch('langate');  

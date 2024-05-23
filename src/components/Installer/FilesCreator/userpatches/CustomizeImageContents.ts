@@ -26,24 +26,34 @@ Main() {
                 bookworm)
                 `+`${build.lanipchange ? `# Copy network settings
                 cp /tmp/overlay/network/interfaces /etc/network` : ""}`+`
-        
+
+                # Copy and register firstboot files
+                cp /tmp/overlay/firstboot/firstboot.sh /etc/init.d/firstboot.sh
+                sudo chmod +x /etc/init.d/firstboot.sh
+                cp /tmp/overlay/firstboot/firstboot.service /etc/systemd/system/firstboot.service
+                sudo systemctl enable firstboot
+
+
                 # Change motd (welcome message)
                 #cat /tmp/overlay/motd/logo.sh > etc/update-motd.d/10-armbian-header
 
+                `+`${build.olia.zabbix ? `
                 # Download Zabbix-agent
                 wget https://repo.zabbix.com/zabbix/6.0/ubuntu-arm64/pool/main/z/zabbix-release/zabbix-release_6.0-5+ubuntu22.04_all.deb
                 dpkg -i zabbix-release_6.0-5+ubuntu22.04_all.deb
                 apt update
                 apt install zabbix-agent
                 systemctl restart zabbix-agent
-                systemctl enable zabbix-agent
+                systemctl enable zabbix-agent` : ""}`+`
 
+                `+`
                 # Удаляем файлы первичной смены пароля
                 #rm /etc/profile.d/armbian-check-first-login.sh
                 #rm /etc/profile.d/armbian-check-first-login-reboot.sh
                 # Добавляем пользователя с папкой и sudo
                 #useradd -m -p $(perl -e 'print crypt($ARGV[0], "password")' '1234') olia
                 #sudo usermod -a -G sudo olia
+                `+`${build.olia.scada ? `
 
                 #Качаем ASP.NET Core Runtime 8.0
                 wget https://download.visualstudio.microsoft.com/download/pr/1e449990-2934-47ee-97fb-b78f0e587c98/1c92c33593932f7a86efa5aff18960ed/dotnet-sdk-8.0.204-linux-arm64.tar.gz
@@ -71,14 +81,15 @@ Main() {
                 #Создаем самоподписанный сертификат
                 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt
                 #Добавляем строчку в файл (не работает!!! надо делать вручную)
-                sudo sh -c "echo 'tmpfs           /var/log/scada  tmpfs   defaults,noatime,size=100m    0    0' >> /etc/fstab"
-
+                sudo sh -c "echo 'tmpfs           /var/log/scada  tmpfs   defaults,noatime,size=100m    0    0' >> /etc/fstab"`
+                : ""}`+`
+                `+`${build.olia.plc ? `
                 #Ставим OpenPLC Runtime
                 sudo apt install git
                 mkdir /var/OpenPLC
                 git clone https://github.com/thiagoralves/OpenPLC_v3.git /var/OpenPLC
                 cd /var/OpenPLC/
                 ./install.sh linux
-`
+                ` : ""}`
 
 export default CustomizeImageContents;
