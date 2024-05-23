@@ -36,6 +36,7 @@ export default function Parameters () {
     const parts = formattedValue.split(".");
     
     if (input.value === "." || (input.value.at(-1) === "." && input.value.at(-2) === ".")) return;
+    if (/[^0-9.]/.test(input.value)) return
     if (parts.length === 4 && parts[3].length > 3) return
     if (parts.length > 4) return
 
