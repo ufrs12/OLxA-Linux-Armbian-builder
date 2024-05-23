@@ -1,4 +1,4 @@
-import { Controller, useForm } from "react-hook-form"
+import { Controller, ControllerRenderProps, useForm } from "react-hook-form"
 import "./Parameters.css"
 import { build } from "../Installer/Installer";
 import React from "react";
@@ -50,27 +50,35 @@ export default function Parameters () {
     // if (parts.length > 4) {
     //   return; // Не более 4 частей
     // }
-    setValue(field.name, e.target.value); // Обновляем состояние формы
-    field.onChange(e.target.value); // Обновляем поле с отформатированным значением
+    setValue(field.name, e.target.value);
+    field.onChange(e.target.value);
   };
 
-  // const InputMask: React.FC <(
-  //   { field: string[] }
-  // )> = ({ field }) => {
-  //   return(
-  //     <input 
-  //       {...field}
-  //       type="text" 
-  //       onChange={(e) => ( 
-  //         handleInputChange(e, field)
-  //       )} 
-  //     />
-  //   )}
-  // }
+  const InputMask: React.FC <(
+    { field: ControllerRenderProps<LanFormInput> }
+  )> = ({ field }) => {
+    return(
+      <input 
+        {...field}
+        type="text" 
+        value={typeof field.value === 'boolean' ? field.value.toString() : field.value}
+        disabled={!build.lanipchange}
+        onChange={(e) => (handleInputChange(e, field))}
+      />
+    )}
+
 
 
   return(
     <form>
+      <Controller
+        name={'lanip'}
+        control={control}
+        render={({ field }) => (
+          <InputMask field={field} key={field.name}/>
+        )}
+      />
+      
       <section>
         <label>
           Включить/Выключить ввод:
@@ -83,7 +91,7 @@ export default function Parameters () {
             }}
           />
         </label>
-        <Controller
+        {/* <Controller
           name={'lanip'}
           control={control}
           render={({ field }) => (
@@ -96,7 +104,7 @@ export default function Parameters () {
               )} 
             />
           )}
-        />
+        /> */}
         <Controller 
           name={'lansubnet'}
           control={control}
