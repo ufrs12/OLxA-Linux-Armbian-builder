@@ -52,3 +52,14 @@
   border-radius: 6px;
   padding: 10px;
 }
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 6px;
+  background-color: var(--black-color);
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}

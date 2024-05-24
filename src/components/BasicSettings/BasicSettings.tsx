@@ -69,7 +69,8 @@ const BasicSettings: React.FC = () => {
                 <label key={index} htmlFor={app} className="app-item">
                   {/* <img src="" alt={app} /> */}
                   <input 
-                    type="checkbox" 
+                    type="checkbox"
+                    //className="app-item-box" 
                     id={app} 
                     value={app}
                     checked={value.includes(app)}
