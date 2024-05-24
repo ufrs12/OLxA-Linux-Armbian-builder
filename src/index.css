@@ -1,9 +1,13 @@
 :root{
+  --black-color: #232222;
+  --dark_gray-color: #2f2e2e;
+  --yell: #bf9770;
+  --yell-gr: #907f6f;
   --white-color: #FFF7FC;
   --light_gray-color: #E0DADE;
   --gray-color: #BAB3B7;
-  --dark_gray-color: #969093;
-  --black-color: #06071B;
+ 
+  
   --light_black-color: #0F1022;
   --light_cian-color: #8B93FF;
   --light_blue-color: #5755FE;
@@ -17,8 +21,8 @@
 }
 
 html{
-  background-color: var(--black-color);
-  color: var(--black-color);
+  background-color: var(--dark_gray-color);
+  color: var(--yell);
   font-family: sans-serif;
   font-size: 1.2rem;
 }
