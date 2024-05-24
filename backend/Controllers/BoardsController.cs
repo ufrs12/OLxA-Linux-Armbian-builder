@@ -32,8 +32,12 @@ public class BoardsController : ControllerBase
                 ind = s.IndexOf("BOARD_NAME");
                 if (ind >= 0)
                 {
-                    s = s.Remove(len); 
+                    s = s.Remove(len);
                     board_text = s.Remove(0, ind + 12);
+                    ind = board_text.IndexOf('"');
+                    if (ind>0){
+                        board_text = board_text.Substring(0,ind);
+                    }
                     continue;
                 }
 
@@ -98,10 +102,10 @@ public class BoardsController : ControllerBase
                 Supp = file.Extension,
                 Text = board_text,
                 Kernels = kernels,
-                LanName ="-"
             });
         }
-        return boards;
+        List<Board> SortedList = boards.OrderBy(o=>o.Text).ToList();
+        return SortedList;
     }
     // public Board Get()
     // {

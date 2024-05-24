@@ -19,7 +19,7 @@ export default function Installer (){
   return(
     <div className='installer-container'>
       <div className='installer-options'>
-        <Link to={"bsettings"} className={`options-item ${isActive('bsettings') ? 'active' : ''}`}>Базовые настройки</Link>
+        <Link to={"bsettings"} className={`options-item ${isActive('bsettings') ? 'active' : ''}`}>Система</Link>
         <Link to={"olia"} className={`options-item ${isActive('olia') ? 'active' : ''}`}>OLIA</Link>
         <Link to={"olha"} className={`options-item ${isActive('olha') ? 'active' : ''}`}>OLHA</Link>
         <Link to={"olta"} className={`options-item ${isActive('olta') ? 'active' : ''}`}>OLTA</Link>

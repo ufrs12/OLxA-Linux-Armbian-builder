@@ -6,18 +6,18 @@ export default function NetworkContent() {
         name = build.lanname;
     }
     let content:string = `
-    source /etc/network/interfaces.d/*
-    # Network is managed by Network manager
-    auto lo
-    iface lo inet loopback
+source /etc/network/interfaces.d/*
+# Network is managed by Network manager
+auto lo
+iface lo inet loopback
 
 
-    auto ${name}
-    iface ${name} inet static
-    address ${build.lanip}
-    gateway ${build.langate}
-    netmask ${build.lansubnet}
-    `;
+auto ${name}
+iface ${name} inet static
+address ${build.lanip}
+gateway ${build.langate}
+netmask ${build.lansubnet}
+`;
 
     return content;
 }

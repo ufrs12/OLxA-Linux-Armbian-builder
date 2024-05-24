@@ -24,6 +24,16 @@
   padding: 4px;
   cursor: pointer;
 }
+.dropdown-list::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+.dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--yell-gr);
+  border-radius: 6.87501px;
+}
+
 .app-list{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -41,4 +51,15 @@
   border-color: var(--yell-gr);
   border-radius: 6px;
   padding: 10px;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 6px;
+  background-color: var(--black-color);
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }

@@ -10,7 +10,7 @@ export default function FirstBootContent() {
         #n=$(ip link | grep -n 'link/ether' | sed "s/:.*//")
         # выполняем айпи линк | строку выше прошлой | берем все после первого двоеточия | берем все что перед первым двоеточием
         #name=$(ip link | sed "$((n-1))!D" | cut -d: -f 2- | cut -d: -f 1)
-        name=$(nmcli device status | awk "/ether/ && !/lo/ { print \$1 }")
+        name=$(nmcli device status | awk '/ether/ && !/lo/ { print $1 }')
         # меняем 
         sed -i "s/eth0/$name/" /etc/network/interfaces
         `

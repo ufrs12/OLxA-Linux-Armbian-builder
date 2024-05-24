@@ -31,17 +31,23 @@
   color: var(--yell);
 }
 .installer-form{
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 5px;
   width: 100%;
   padding: 30px 20px 30px 20px;
 }
 .installer-btn{
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 20px;
   text-align: left;
-  color: var(--yell);
+  color: var(--green);
+  text-align: center;
   font-family: sans-serif;
-  font-size: 22px;
-  background-color: var(--dark_gray-color);
-  border-radius: 5px;
-  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: var(--black-color);
   padding: 10px 20px 10px 5px;
   margin-top: 40px;
   cursor: pointer;
