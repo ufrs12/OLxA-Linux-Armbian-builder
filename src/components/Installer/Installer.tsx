@@ -8,6 +8,12 @@ import { Link, Route, Routes, useLocation } from "react-router-dom";
 import { Armbian } from "../../models/Armbian";
 import { Build } from "../../models/Build";
 import DownloadFile from "./GenerateZIP";
+import React from "react";
+// import { logo } from "../../assets.";
+// import { system } from "../../assets/";
+import olia from "../../assets/I.png";
+import olha from "../../assets/H.png";
+import olta from "../../assets/T.png";
 
 export const armbian = new Armbian();
 export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
@@ -16,25 +22,47 @@ export default function Installer (){
   const location = useLocation();
   const isActive = (path: string) => location.pathname === `/${path}`;
 
+  const NavLink: React.FC<({
+    name: string, title: string, img: string
+  })> = ({name, title, img}) => {
+    return(
+      <Link to={name} className={`options-item ${isActive(name) ? 'active' : ''}`}>
+        <img src={img} className="options-item-img"/><span>{title}</span>
+      </Link>
+    )}
+
   return(
     <div className='installer-container'>
-      <div className='installer-options'>
-        <Link to={"bsettings"} className={`options-item ${isActive('bsettings') ? 'active' : ''}`}>Система</Link>
-        <Link to={"olia"} className={`options-item ${isActive('olia') ? 'active' : ''}`}>OLIA</Link>
-        <Link to={"olha"} className={`options-item ${isActive('olha') ? 'active' : ''}`}>OLHA</Link>
-        <Link to={"olta"} className={`options-item ${isActive('olta') ? 'active' : ''}`}>OLTA</Link>
-        <Link to={"parameters"} className={`options-item ${isActive('parameters') ? 'active' : ''}`}>Параметры</Link> 
-        <button onClick={DownloadFile} className="installer-btn">Завершить</button>
+      <div className="installer-header">
+        <div>
+          <img src="/" /> OLxA Linux Armbian Builder
+        </div>
+        <div className="socials">
+          <a href="/"><img src="/" /></a>
+          <a href="/"><img src="/" /></a>
+          <a href="/"><img src="/" /></a>
+        </div>
       </div>
-      <div className="installer-form">
-        <Routes>
-          <Route path="bsettings" element={<BasicSettings />}></Route>
-          <Route path="olia" element={<OLIA />}></Route>
-          <Route path="olha" element={<OLHA />}></Route>
-          <Route path="olta" element={<OLTA />}></Route>
-          <Route path="parameters" element={<Parameters />}></Route>
-        </Routes>
+      <div className="installer-main">
+        <div className='installer-options'>
+          <NavLink name="system" title="Система" img={olia}/>
+          <NavLink name="olia" title="OLIA" img={olia}/>
+          <NavLink name="olha" title="OLHA" img={olha}/>
+          <NavLink name="olta" title="OLTA" img={olta}/>
+          <NavLink name="parameters" title="Параметры" img={olia}/>
+          <button onClick={DownloadFile} className="installer-btn">Завершить</button>
+        </div>
+        <div className="installer-form">
+          <Routes>
+            <Route path="system" element={<BasicSettings />}></Route>
+            <Route path="olia" element={<OLIA />}></Route>
+            <Route path="olha" element={<OLHA />}></Route>
+            <Route path="olta" element={<OLTA />}></Route>
+            <Route path="parameters" element={<Parameters />}></Route>
+          </Routes>
+        </div>
       </div>
+      
     </div>
   )
 }
