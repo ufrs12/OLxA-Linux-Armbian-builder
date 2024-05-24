@@ -24,6 +24,10 @@
   padding: 5px;
 }
 .options-item.active {
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 5px;
+  background-color: var(--black-color);
   color: var(--yell);
 }
 .installer-form{
