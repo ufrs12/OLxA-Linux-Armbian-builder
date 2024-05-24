@@ -11,9 +11,12 @@ import DownloadFile from "./GenerateZIP";
 import React from "react";
 // import { logo } from "../../assets.";
 // import { system } from "../../assets/";
-import olia from "../../assets/I.png";
-import olha from "../../assets/H.png";
-import olta from "../../assets/T.png";
+import olia from "../../assets/I.svg";
+import olha from "../../assets/H.svg";
+import olta from "../../assets/T.svg";
+import arm from "../../assets/Arm.svg";
+import sett from "../../assets/Set.svg";
+import olxa from "../../assets/olxa.svg";
 
 export const armbian = new Armbian();
 export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
@@ -35,7 +38,11 @@ export default function Installer (){
     <div className='installer-container'>
       <div className="installer-header">
         <div>
-          <img src="/" /> OLxA Linux Armbian Builder
+          <img className="logo" src={olxa} />
+          
+        </div>
+        <div className="name">
+          <p>OLxA Linux Armbian Builder</p> 
         </div>
         <div className="socials">
           <a href="/"><img src="/" /></a>
@@ -45,11 +52,11 @@ export default function Installer (){
       </div>
       <div className="installer-main">
         <div className='installer-options'>
-          <NavLink name="system" title="Система" img={olia}/>
+          <NavLink name="system" title="Система" img={arm}/>
           <NavLink name="olia" title="OLIA" img={olia}/>
           <NavLink name="olha" title="OLHA" img={olha}/>
           <NavLink name="olta" title="OLTA" img={olta}/>
-          <NavLink name="parameters" title="Параметры" img={olia}/>
+          <NavLink name="parameters" title="Параметры" img={sett}/>
           <button onClick={DownloadFile} className="installer-btn">Завершить</button>
         </div>
         <div className="installer-form">
