@@ -24,6 +24,16 @@
   padding: 4px;
   cursor: pointer;
 }
+.dropdown-list::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+.dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--yell-gr);
+  border-radius: 6.87501px;
+}
+
 .app-list{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
