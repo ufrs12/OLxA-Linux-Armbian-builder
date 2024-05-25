@@ -1,1 +1,5 @@
-
+p, a, button, label, select, option{
+  color: var(--yell);
+  font-family: "Nunito";
+  font-size: 20px;
+}
