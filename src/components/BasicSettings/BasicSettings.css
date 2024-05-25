@@ -16,22 +16,17 @@
   border-color: var(--yell-gr);
   border-radius: 5px;
   background-color: var(--black-color);
-  color: var(--yell);
-  font-family: sans-serif;
-  font-size: 17px;
   width: 100%;
   max-width: 300px;
-  padding: 4px;
   cursor: pointer;
 }
 .dropdown-list::-webkit-scrollbar {
-  background: transparent;
+  background: var(--dark_gray-color);
   width: 10px;
-  height: 10px;
 }
 .dropdown-list::-webkit-scrollbar-thumb {
   background: var(--yell-gr);
-  border-radius: 6.87501px;
+  border-radius: 8px;
 }
 
 .app-list{
@@ -44,22 +39,19 @@
 .app-item{ 
   display: grid;
   grid-auto-flow: column;
-  gap: 10px;
   justify-content: start;
+  align-items: center;
   background-color: var(--black-color);
   border: solid;
   border-color: var(--yell-gr);
   border-radius: 6px;
+  gap: 10px;
   padding: 10px;
 }
 input[type="checkbox"] {
-  /* Add if not using autoprefixer */
   -webkit-appearance: none;
-  /* Remove most all native input styles */
   appearance: none;
-  /* For iOS < 15 */
   background-color: var(--form-background);
-  /* Not removed via appearance */
   margin: 0;
 
   font: inherit;
@@ -83,7 +75,6 @@ input[type="checkbox"]::before {
   transform-origin: bottom left;
   transition: 120ms transform ease-in-out;
   box-shadow: inset 1em 1em var(--form-control-color);
-  /* Windows High Contrast Mode */
   background-color: CanvasText;
 }
 

@@ -39,9 +39,8 @@ export default function Installer (){
       <div className="installer-header">
         <div>
           <img className="logo" src={olxa} />
-          
         </div>
-        <div className="name">
+        <div className="title">
           <p>OLxA Linux Armbian Builder</p> 
         </div>
         <div className="socials">
