@@ -7,9 +7,22 @@
 }
 
 .installer-header{
-  display: grid;
+  border: solid;
+  border-color: var(--yell-gr);
+  border-radius: 5px;
+  background-color: var(--black-color);
+  display: flex;
   grid-auto-flow: column;
-  justify-content: space-between;  
+  justify-content: space-between;
+  height: 50px;
+  align-items:center;
+}
+img {
+  max-height: 40px;
+  width: auto;
+}
+.name{
+  font-size: 100%;
 }
 .installer-main{
   display: flex;
@@ -22,9 +35,9 @@
   justify-content: start;  
   background-color: var(--dark_gray-color);
   border-radius: 10px 0 0 10px;
-  width: 200px;
+  width: 250px;
   max-width: 300px;
-  gap: 20px;
+  gap: 5px;
   padding: 10px;
   color: var(--yell);
 }
@@ -35,12 +48,12 @@
   justify-content: start;  
   gap: 8px;
   color: var(--yell);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 400;
   text-decoration: none;
   align-items: center;
   justify-items: center;
-  padding: 5px;
+  padding: 10px;
 }
 .options-item.active {
   /* border: solid; */
@@ -49,8 +62,17 @@
   background-color: var(--black-color);
   color: var(--yell);
 }
+.options-item:hover {
+  /* border: solid; */
+  border-color: var(--yell-gr);
+  border-radius: 5px;
+  background-color: var(--hover);
+  color: var(--yell);
+}
 .options-item-img{
-  width: 16px;
+  height: 32px;
+  width: 32px;
+  
 }
 
 .installer-form{
