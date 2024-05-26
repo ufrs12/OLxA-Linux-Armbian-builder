@@ -16,7 +16,10 @@ import olha from "../../assets/H.svg";
 import olta from "../../assets/T.svg";
 import arm from "../../assets/Arm.svg";
 import sett from "../../assets/Set.svg";
-import olxa from "../../assets/olxa.svg";
+import olxa from "../../assets/olxa1.svg";
+import youtube from "../../assets/youtube.svg";
+import telegram from "../../assets/telegram.svg";
+import github from "../../assets/github.svg";
 
 export const armbian = new Armbian();
 export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
@@ -44,9 +47,9 @@ export default function Installer (){
           <p>OLxA Linux Armbian Builder</p> 
         </div>
         <div className="socials">
-          <a href="/"><img src="/" /></a>
-          <a href="/"><img src="/" /></a>
-          <a href="/"><img src="/" /></a>
+          <a href="https://www.youtube.com/watch?v=70KjBs9PBvc&list=PLTikPLD2idDUiVIWqESOJQMt4NExaFTpc"><img src={youtube} /></a>
+          <a href="https://t.me/ruolia"><img src={telegram} /></a>
+          <a href="https://github.com/ufrs12/OLxA-Linux-Armbian-builder"><img src={github} /></a>
         </div>
       </div>
       <div className="installer-main">

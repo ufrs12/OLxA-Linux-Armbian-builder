@@ -2,6 +2,7 @@ import "./BasicSettings.css";
 import { useForm, Controller } from 'react-hook-form';
 import { armbian, build } from '../Installer/Installer';
 import React from "react";
+import debian from "../../assets/debian.svg";
 
 interface IFormInput {
   board: string;
@@ -45,7 +46,7 @@ const BasicSettings: React.FC = () => {
           <label>Плата:</label>
           <Dropdown name="board">
             {armbian.boards.map((item, index) => (
-              <option key={index} value={item.name}>{item.text}</option>
+              <option className="dropdown-option" key={index} value={item.name}>{item.text}</option>
             ))}
           </Dropdown>
         </div>
@@ -56,6 +57,11 @@ const BasicSettings: React.FC = () => {
               <option key={index} value={kernel}>{kernel}</option>
             ))}
           </Dropdown>
+        </div>
+        <div className="dropdown-container">
+        <img className="logo" src={debian} />
+          <label>Debian 12 Bookworm</label>
+
         </div>
       </section>
       <section>
