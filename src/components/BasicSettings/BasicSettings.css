@@ -23,6 +23,7 @@
 .dropdown-list:hover {
   background-color: var(--hover);
 }
+
 .dropdown-list::-webkit-scrollbar {
   background: var(--dark_gray-color);
   width: 10px;
@@ -38,6 +39,7 @@
 .dropdown-option:checked {
   background-color: var(--hover);
 }
+
 
 
 .app-list{
