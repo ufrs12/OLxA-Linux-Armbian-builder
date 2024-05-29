@@ -11,6 +11,7 @@ import DownloadFile from "./GenerateZIP";
 import React from "react";
 // import { logo } from "../../assets.";
 // import { system } from "../../assets/";
+import x from "../../assets/x.svg";
 import olia from "../../assets/I.svg";
 import olha from "../../assets/H.svg";
 import olta from "../../assets/T.svg";
@@ -55,6 +56,7 @@ export default function Installer (){
       <div className="installer-main">
         <div className='installer-options'>
           <NavLink name="system" title="Система" img={arm}/>
+          <NavLink name="olxa" title="OLxA" img={x}/>
           <NavLink name="olia" title="OLIA" img={olia}/>
           <NavLink name="olha" title="OLHA" img={olha}/>
           <NavLink name="olta" title="OLTA" img={olta}/>
