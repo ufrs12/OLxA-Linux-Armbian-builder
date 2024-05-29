@@ -48,9 +48,9 @@ export default function Installer (){
           <p>OLxA Linux Armbian Builder</p> 
         </div>
         <div className="socials">
-          <a href="https://www.youtube.com/watch?v=70KjBs9PBvc&list=PLTikPLD2idDUiVIWqESOJQMt4NExaFTpc"><img src={youtube} /></a>
-          <a href="https://t.me/ruolia"><img src={telegram} /></a>
-          <a href="https://github.com/ufrs12/OLxA-Linux-Armbian-builder"><img src={github} /></a>
+          <a href="https://www.youtube.com/watch?v=70KjBs9PBvc&list=PLTikPLD2idDUiVIWqESOJQMt4NExaFTpc" className="socials-src"><img src={youtube} className="socials-img" /></a>
+          <a href="https://t.me/ruolia" className="socials-src"><img src={telegram} className="socials-img" /></a>
+          <a href="https://github.com/ufrs12/OLxA-Linux-Armbian-builder" className="socials-src"><img src={github} className="socials-img" /></a>
         </div>
       </div>
       <div className="installer-main">

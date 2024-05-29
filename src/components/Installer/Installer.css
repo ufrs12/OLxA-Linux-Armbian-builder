@@ -39,6 +39,20 @@
   font-weight: bold;
 }
 
+.socials{
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 10px;
+}
+.socials-src{
+  display: flex;
+  align-items: center;
+}
+.socials-img{
+  width: 32px;
+}
+
 .options-item{
   display: grid;
   grid-auto-flow: column;
@@ -82,4 +96,7 @@
   padding: 10px 20px 10px 5px;
   margin-top: 40px;
   cursor: pointer;
+}
+.installer-btn:hover{
+  background-color: var(--hover);
 }
