@@ -1,6 +1,9 @@
 
-export interface OLIA{
+export interface OLxA{
   zabbix: boolean;
+  webmin: boolean;
+}
+export interface OLIA{
   scada:  boolean;
   plc:    boolean;
 }
@@ -17,7 +20,8 @@ export class Build {
   lanip:        string = '192.168.1.2';
   lansubnet:    string = '255.255.255.0';
   langate:      string = '192.168.1.1';
-  olia:         OLIA = { zabbix: false, scada: false, plc: false};
+  olia:         OLIA = { scada: false, plc: false};
+  olxa:         OLxA = { zabbix: false, webmin: false};
 
   constructor(armversion: string, board: string, kernel: string){
     this.armversion = armversion;
