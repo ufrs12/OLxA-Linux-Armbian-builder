@@ -21,6 +21,7 @@ import olxa from "../../assets/olxa1.svg";
 import youtube from "../../assets/youtube.svg";
 import telegram from "../../assets/telegram.svg";
 import github from "../../assets/github.svg";
+import OLxA from "../OLxA/OLxA";
 
 export const armbian = new Armbian();
 export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbian.boards[0].kernels[0]);
@@ -66,6 +67,7 @@ export default function Installer (){
         <div className="installer-form">
           <Routes>
             <Route path="system" element={<BasicSettings />}></Route>
+            <Route path="olxa" element={<OLxA />}></Route>
             <Route path="olia" element={<OLIA />}></Route>
             <Route path="olha" element={<OLHA />}></Route>
             <Route path="olta" element={<OLTA />}></Route>
