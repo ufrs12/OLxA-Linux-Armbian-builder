@@ -37,7 +37,7 @@ Main() {
                 # Change motd (welcome message)
                 #cat /tmp/overlay/motd/logo.sh > etc/update-motd.d/10-armbian-header
 
-                `+`${build.olia.zabbix ? `
+                `+`${build.olxa.zabbix ? `
                 # Download Zabbix-agent
                 wget https://repo.zabbix.com/zabbix/6.0/ubuntu-arm64/pool/main/z/zabbix-release/zabbix-release_6.0-5+ubuntu22.04_all.deb
                 dpkg -i zabbix-release_6.0-5+ubuntu22.04_all.deb

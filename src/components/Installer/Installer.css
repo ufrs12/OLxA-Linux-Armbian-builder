@@ -97,3 +97,6 @@
   margin-top: 40px;
   cursor: pointer;
 }
+.installer-btn:hover{
+  background-color: var(--hover);
+}
