@@ -1,3 +1,4 @@
+const WebminContent = () => `
 apt update -y
 apt install gnupg2 curl -y
 cd /tmp
@@ -5,3 +6,6 @@ curl -o setup-repos.sh https://raw.githubusercontent.com/webmin/webmin/master/se
 sh setup-repos.sh
 apt update -y
 apt install webmin --install-recommends -y
+`;
+
+export default WebminContent;
