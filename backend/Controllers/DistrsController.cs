@@ -6,30 +6,30 @@ namespace backend.Controllers;
 [Route("[controller]")]
 public class DistrsController : ControllerBase
 {
-    private readonly string distrs_path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "/build/config/distributions";
+    private readonly string distrs_path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "/build/config";
     
     [HttpGet(Name = "Distrs")]
     public List<Distr> Get()
     {
-        DirectoryInfo main_dir = new DirectoryInfo(distrs_path);
+        DirectoryInfo main_dir = new DirectoryInfo(distrs_path + "/distributions");
         List<Distr> distrs = new List<Distr>();
 
         foreach (DirectoryInfo dir in main_dir.GetDirectories()) 
         {   
             string text = "";
-            using (StreamReader sr = new StreamReader(dir.FullName + "/name"))
+            using (StreamReader sr = new StreamReader(dir.FullName + "/distributions/name"))
             {
                 text = sr.ReadToEnd().Trim();
             }
 
             string supp = "";
-            using (StreamReader sr = new StreamReader(dir.FullName + "/support"))
+            using (StreamReader sr = new StreamReader(dir.FullName + "/distributions/support"))
             {
                 supp = sr.ReadToEnd().Trim();
             }
 
             string archs = "";
-            using (StreamReader sr = new StreamReader(dir.FullName + "/architectures"))
+            using (StreamReader sr = new StreamReader(dir.FullName + "/distributions/architectures"))
             {
                 archs = sr.ReadToEnd().Trim();
             }
