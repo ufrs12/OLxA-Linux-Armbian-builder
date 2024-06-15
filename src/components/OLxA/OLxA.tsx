@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { build } from "../Installer/Installer";
 import "./OLxA.css";
+// import zabbix from "../../assets/zabbix.svg"
+// import webmin from "../../assets/webmin.svg"
 
 interface OLxAFormInput{
   zabbix: boolean,
