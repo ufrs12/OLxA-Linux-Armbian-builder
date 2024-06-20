@@ -14,8 +14,8 @@ interface OLIAFormInput{
 export default function OLIA (){
   const { watch, setValue } = useForm<OLIAFormInput>({
     defaultValues: {
-      scada: build.olxa.zabbix,
-      plc: build.olxa.webmin
+      scada: build.olia.scada,
+      plc: build.olia.plc
   }});
 
   build.olia.scada = watch('scada');
