@@ -22,8 +22,7 @@ export default function OLxA (){
   return(
     <form>
       <section>
-        <label>
-          zabbix:
+        <label className="ch">
           <input
             type="checkbox"
             checked={build.olxa.zabbix}
@@ -32,9 +31,10 @@ export default function OLxA (){
               setValue('zabbix', e.target.checked)
             }}
           />
+          Zabbix Agent 2
         </label>
-        <label>
-          webmin:
+        <br/>
+        <label className="ch">
           <input
             type="checkbox"
             checked={build.olxa.webmin}
@@ -43,6 +43,7 @@ export default function OLxA (){
               setValue('webmin', e.target.checked)
             }}
           />
+          Webmin (не работает)
         </label>
       </section>
     </form>
