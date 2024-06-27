@@ -14,8 +14,8 @@ interface OLIAFormInput{
 export default function OLIA (){
   const { watch, setValue } = useForm<OLIAFormInput>({
     defaultValues: {
-      scada: build.olxa.zabbix,
-      plc: build.olxa.webmin
+      scada: build.olia.scada,
+      plc: build.olia.plc
   }});
 
   build.olia.scada = watch('scada');
@@ -25,8 +25,7 @@ export default function OLIA (){
     <>
       <form>
         <section>
-          <label>
-            scada:
+          <label className="ch">
             <input
               type="checkbox"
               checked={build.olia.scada}
@@ -35,9 +34,10 @@ export default function OLIA (){
                 setValue('scada', e.target.checked)
               }}
             />
+            Rapid SCADA
           </label>
-          <label>
-            plc:
+          <br/>
+          <label className="ch">
             <input
               type="checkbox"
               checked={build.olia.plc}
@@ -46,6 +46,7 @@ export default function OLIA (){
                 setValue('plc', e.target.checked)
               }}
             />
+            Open PLC Runtime
           </label>
         </section>
       </form>

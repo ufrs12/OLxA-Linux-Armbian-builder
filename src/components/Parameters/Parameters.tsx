@@ -70,8 +70,7 @@ export default function Parameters () {
   return(
     <form>
       <section>
-        <label>
-          Включить/Выключить ввод:
+        <label className="ch">
           <input
             type="checkbox"
             checked={build.lanipchange}
@@ -79,11 +78,16 @@ export default function Parameters () {
               build.lanipchange = e.target.checked
               setValue('lanipchange', e.target.checked)
             }}
-          />
+          />Применить следующие настройки сети:
         </label>
-        <InputMask name="lanip"/>
-        <InputMask name="lansubnet"/>
-        <InputMask name="langate"/>
+        <br/>
+        <label><InputMask name="lanip"/> IP адрес</label>
+        <br/>
+        <br/>
+        <label><InputMask name="lansubnet"/> Маска подсети</label>
+        <br/>
+        <br/>
+        <label><InputMask name="langate"/> Основной шлюз</label>
       </section>
     </form>
   )
