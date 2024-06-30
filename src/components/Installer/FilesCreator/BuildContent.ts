@@ -11,7 +11,7 @@ fi
 ` + build.basicprogs.map(e => `echo '${e}' >> ./build/config/cli/common/main/packages`).join("\n") + `
 
 # 3. Run Armbian build with options first time
-sudo sh ./builder/scripts/run.sh
+sh ./builder/scripts/run.sh
 `;
 
 export default BuildContent;
