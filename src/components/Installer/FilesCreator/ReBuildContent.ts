@@ -15,7 +15,7 @@ mv ./builder/userpatches/customize-image.sh ./build/userpatches/
 
 
 # 3. Run Armbian build with options first time
-sudo sh ./builder/scripts/run.sh
+sh ./builder/scripts/run.sh
 `;
 
 export default ReBuildContent;
