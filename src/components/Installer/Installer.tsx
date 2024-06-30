@@ -9,8 +9,6 @@ import { Armbian } from "../../models/Armbian";
 import { Build } from "../../models/Build";
 import DownloadFile from "./GenerateZIP";
 import React from "react";
-// import { logo } from "../../assets.";
-// import { system } from "../../assets/";
 import x from "../../assets/x.svg";
 import olia from "../../assets/I.svg";
 import olha from "../../assets/H.svg";
@@ -28,7 +26,10 @@ export const build = new Build(armbian.armVersion, armbian.boards[0].name, armbi
 
 export default function Installer (){
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === `/${path}`;
+  const isActive = (path: string) => {
+    if (path != "/") return location.pathname === `/${path}`
+    else return location.pathname === `${path}`
+  }
 
   const NavLink: React.FC<({
     name: string, title: string, img: string
@@ -56,7 +57,7 @@ export default function Installer (){
       </div>
       <div className="installer-main">
         <div className='installer-options'>
-          <NavLink name="system" title="Система" img={arm}/>
+          <NavLink name="/" title="Система" img={arm}/>
           <NavLink name="olxa" title="OLxA" img={x}/>
           <NavLink name="olia" title="OLIA" img={olia}/>
           <NavLink name="olha" title="OLHA" img={olha}/>
@@ -66,7 +67,7 @@ export default function Installer (){
         </div>
         <div className="installer-form">
           <Routes>
-            <Route path="system" element={<BasicSettings />}></Route>
+            <Route path="/" element={<BasicSettings />}></Route>
             <Route path="olxa" element={<OLxA />}></Route>
             <Route path="olia" element={<OLIA />}></Route>
             <Route path="olha" element={<OLHA />}></Route>
